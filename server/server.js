@@ -8,22 +8,17 @@ require("dotenv").config();
 const app = express();
 const port = process.env.PORT || 5000;
 
-app.use(cors({
-  // origin: ['http://localhost:3000', 'http://localhost:3002'],
-  origin: true,
-  credentials: true
-}));
+// app.use(cors({
+//   // origin: ['http://localhost:3000', 'http://localhost:3002'],
+//   origin: true,
+//   credentials: true
+// }));
 
-app.use(function(req,res,next) {
-  req.socket.setNoDelay(true)
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "https://aswinko.github.io"); // Replace with the domain name of your website
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  res.header("Access-Control-Allow-Credentials", true);
-      res.header("Access-Control-Allow-Origin", "https://aswinko.github.io/"); 
-
-  res.header('Access-Control-Expose-Headers', 'agreementrequired');
-
-  next()
-})
+  next();
+});
 
 app.use(express.json());
 app.use(cookieParser());
