@@ -8,23 +8,16 @@ require("dotenv").config();
 const app = express();
 const port = process.env.PORT || 5000;
 
-// app.use(cors({
-//   // origin: ['http://localhost:3000', 'http://localhost:3002'],
-//   origin: true,
-//   credentials: true
-// }));
+app.use(cors({
+  // origin: ['http://localhost:3000', 'http://localhost:3002'],
+  origin: ['https://aswinko.github.io'],
+  credentials: true
+}));
 
 app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
+  res.header("Access-Control-Allow-Origin", "https://aswinko.github.io"); // Replace with the domain name of your website
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-
-  // Handle preflight requests
-  if (req.method === "OPTIONS") {
-    res.send(200);
-  } else {
-    next();
-  }
+  next();
 });
 
 app.use(express.json());
