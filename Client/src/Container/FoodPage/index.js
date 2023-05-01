@@ -71,7 +71,7 @@ const FoodPage = () => {
   const renderFoodItems = () => {
     return (
       <Table striped={true} className="dark:bg-white overflow-x-scroll rounded-md shadow border">
-        <Table.Head className="dark:bg-gray-200 text-gray-700">
+        <Table.Head style={{background: "rgb(229 231 235)"}} className="dark:bg-gray-100 text-gray-700">
           <Table.HeadCell className="text-gray-700">Product name</Table.HeadCell>
           <Table.HeadCell className="text-gray-700">Description</Table.HeadCell>
           <Table.HeadCell className="text-gray-700">Category</Table.HeadCell>
@@ -272,7 +272,7 @@ const FoodPage = () => {
     <Layout className="z-0">
       {/* <ul>{renderCategories(category.categories)}</ul> */}
       <div className="flex justify-end">
-        <Button className="mb-5 border border-2 border-orange-400 text-orange-600 dark:bg-white" onClick={handleShow}>Add Product</Button>
+        <Button className="mb-5 border shadow-xl border-2 border-orange-400 dark:text-orange-600 dark:hover:bg-gray-300 dark:bg-white" onClick={handleShow}>Add Product</Button>
       </div>
       {renderFoodItems()}
 

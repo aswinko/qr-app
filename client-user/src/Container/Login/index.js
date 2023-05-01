@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Navigate, useLocation, useNavigate } from 'react-router-dom'
+import { Navigate, useLocation, useNavigate, useParams } from 'react-router-dom'
 import queryString from 'query-string'
 import axios from 'axios'
 import { API } from '../../urlConfig'
@@ -8,25 +8,27 @@ import { login } from '../../Actions/auth.actions'
 import { nanoid } from 'nanoid'
 
 const Login = () => {
-  const location = useLocation()
-  const navigate = useNavigate()
-  const [tableId, setTableId] = useState(null)
+  // const location = useLocation()
+  // const navigate = useNavigate()
+  // const [tableId, setTableId] = useState(null)
   const [name, setName] = useState('')
   const auth = useSelector((state) => state.auth);
   const dispatch = useDispatch();
+  const { tableId } = useParams();
 
-  useEffect(() => {
-    const parsed = queryString.parse(location.search)
-    if (location.search == '') {
-      navigate('/page-not-found')
-    }
-    if (parsed.tableId === '') {
-      console.log('error')
-      navigate('/page-not-found')
-    }
-    setTableId(parsed.tableId)
-    // console.log(parsed);
-  }, [location.search])
+  // console.log(tableId);
+  // useEffect(() => {
+  //   const parsed = queryString.parse(location.search)
+  //   if (location.search == '') {
+  //     navigate('/page-not-found')
+  //   }
+  //   if (parsed.tableId === '') {
+  //     console.log('error')
+  //     navigate('/page-not-found')
+  //   }
+  //   setTableId(parsed.tableId)
+  //   // console.log(parsed);
+  // }, [location.search])
 
   // const handleLogin = async (e) => {
   //   e.preventDefault()

@@ -49,8 +49,8 @@ function App() {
           <Route path="/about" exact element={<AboutPage />} />
           <Route path="/:slug" exact element={<FoodItem />} />
         </Route>
-        <Route path="/login" exact element={<Login />} />
         <Route path="/page-not-found" exact element={<PageNotFound />} />
+        <Route path="/login/:tableId" exact element={<Login />} />
       </Routes>
     </div>
   );
